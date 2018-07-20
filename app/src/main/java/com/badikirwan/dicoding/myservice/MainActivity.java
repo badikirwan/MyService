@@ -25,10 +25,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_start_service:
-                Intent mIntentStartService = new Intent(MainActivity.this, OriginService.class);
-                startService(mIntentStartService);
+                Intent mStartServiceIntent = new Intent(MainActivity.this, OriginService.class);
+                startService(mStartServiceIntent);
                 break;
             case R.id.btn_start_intent_service:
+                Intent mStartIntentService = new Intent(MainActivity.this, MyIntentService.class);
+                mStartIntentService.putExtra(MyIntentService.EXTRA_DURATION, 5000);
+                startService(mStartIntentService);
                 break;
         }
     }
